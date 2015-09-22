@@ -1,25 +1,33 @@
-JSON logging for Python [![PyPi version](https://img.shields.io/pypi/v/json-logging-py.svg)](https://pypi.python.org/pypi/json-logging-py/)
-============
+JSON logging for Python |PyPi version|
+======================================
 
-This library provides Python logging formatters to output JSON, 2 formatters are specific for Logstash message format version 0 or 1.
+This library provides Python logging formatters to output JSON, 2
+formatters are specific for Logstash message format version 0 or 1.
 
 Installation
 ============
 
 Using pip:
 
+::
+
     pip install json-logging-py
 
 From source:
+
+::
 
     python setup.py install
 
 Usage
 =====
 
-The name of the library is `jsonlogging`, it provides 3 formatters:
+The name of the library is ``jsonlogging``, it provides 3 formatters:
 
-### JSONFormatter
+JSONFormatter
+-------------
+
+::
 
     {
         "tags": [
@@ -34,7 +42,10 @@ The name of the library is `jsonlogging`, it provides 3 formatters:
         "logger": "root"
     }
 
-### LogstashFormatterV0
+LogstashFormatterV0
+-------------------
+
+::
 
     {
         "@source": "JSON://server-01.example.com/example.py",
@@ -53,7 +64,10 @@ The name of the library is `jsonlogging`, it provides 3 formatters:
         "@type": "JSON"
     }
 
-### LogstashFormatterV1
+LogstashFormatterV1
+-------------------
+
+::
 
     {
         "host": "server-01.example.com",
@@ -70,7 +84,10 @@ The name of the library is `jsonlogging`, it provides 3 formatters:
         "levelname": "ERROR"
     }
 
-### Python example
+Python example
+--------------
+
+::
 
     import logging
     import jsonlogging
@@ -91,3 +108,6 @@ The name of the library is `jsonlogging`, it provides 3 formatters:
 
     # You can pass additional tags
     logger.error('hello world!', extra={"tags": ["hello=world"]})
+
+.. |PyPi version| image:: https://img.shields.io/pypi/v/json-logging-py.svg
+   :target: https://pypi.python.org/pypi/json-logging-py/
