@@ -1,4 +1,4 @@
-JSON logging for Python [![PyPi version](https://pypip.in/v/json-logging-py/badge.png)](https://crate.io/packages/json-logging-py/)
+JSON logging for Python [![PyPi version](https://img.shields.io/pypi/v/json-logging-py.svg)](https://pypi.python.org/pypi/json-logging-py/)
 ============
 
 This library provides Python logging formatters to output JSON, 2 formatters are specific for Logstash message format version 0 or 1.

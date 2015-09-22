@@ -10,8 +10,21 @@ except ImportError:
 
 
 class JSONFormatter(logging.Formatter):
+    """
+    JSON formatter for python logging
+
+    You can pass additional tags on a per message basis using the key "tags" in the extra parameter.
+    eg: logger.error('hello world!', extra={"tags": ["hello=world"]})
+    """
 
     def __init__(self, tags=None, hostname=None, fqdn=False, message_type='JSON', indent=None):
+        """
+        :param tags: a list of tags to add to every messages
+        :hostname: force a specific hostname
+        :fqdn: a boolean to use the FQDN instead of the machine's hostname
+        :message_type: the message type for Logstash formatters
+        :indent: indent level of the JSON output
+        """
         self.message_type = message_type
         self.tags = tags if tags is not None else []
         self.extra_tags = []
@@ -111,6 +124,10 @@ class JSONFormatter(logging.Formatter):
 
 
 class LogstashFormatterV0(JSONFormatter):
+    """
+    Logstash formatter version 0
+    """
+
     version = 0
 
     def format(self, record):
@@ -145,6 +162,10 @@ class LogstashFormatterV0(JSONFormatter):
 
 
 class LogstashFormatterV1(JSONFormatter):
+    """
+    Logstash formatter version 1
+    """
+
     def format(self, record):
         # Create message dict
         message = {
